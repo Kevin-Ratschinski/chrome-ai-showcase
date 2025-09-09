@@ -4,7 +4,7 @@ import { cn } from "../../lib/util";
 export interface Tab {
   id: string;
   label: string;
-  disabled: boolean;
+  disabled?: boolean;
   children: React.ReactNode;
 }
 
