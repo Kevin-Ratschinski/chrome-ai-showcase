@@ -1,21 +1,16 @@
-import { Card } from "../components/ui/Card";
+import Card from "../components/ui/Card";
+import type { Tab } from "../components/ui/Tabs";
+import Tabs from "../components/ui/Tabs";
 import { useAppStore } from "../state/store";
-
-interface Items {
-  id: string;
-  label: string;
-  disabled: boolean;
-  children: React.ReactNode;
-}
 
 export default function Home() {
   const availability = useAppStore((state) => state.availability);
 
-  const items: Items[] = [
-    { id: "text", label: "Text (Prompt API)", disabled: availability.languageModel === "unavailable", children: undefined },
+  const tabs: Tab[] = [
+    { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: undefined },
     { id: "summary", label: "Summarizer", disabled: availability.summarizer === "unavailable", children: undefined },
-    { id: "translate", label: "Übersetzung", disabled: availability.translator === "unavailable", children: undefined },
-    { id: "vision", label: "Vision", disabled: availability.languageModel === "unavailable", children: undefined },
+    { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: undefined },
+    { id: "language-detection", label: "Language Detector", disabled: availability.languageDetector === "unavailable", children: undefined },
     {
       id: "writing",
       label: "Writer/Rewriter",
@@ -35,6 +30,7 @@ export default function Home() {
         Availability: LM: {availability.languageModel}, Summarizer: {availability.summarizer}, Translator: {availability.translator}, Language Detector:{" "}
         {availability.languageDetector}, Writer: {availability.writer}, Rewriter: {availability.rewriter}
       </p>
+      <Tabs tabs={tabs} />
     </Card>
   );
 }
