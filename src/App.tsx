@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "./components/layout/Footer";
+import Navbar from "./components/layout/Navbar";
 
 function App() {
   return (

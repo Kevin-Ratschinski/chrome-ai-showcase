@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router";
-import { useAppStore, type AppState } from "../state/store";
+import { useAppStore, type AppState } from "../../state/store";
 
 export default function Navbar() {
   const { theme, toggleTheme, locale, setLocale } = useAppStore();
