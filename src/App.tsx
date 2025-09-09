@@ -3,10 +3,12 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       <main className="container mx-auto px-4 py-6 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
