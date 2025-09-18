@@ -31,9 +31,9 @@ export const useAppStore = create<AppState>((set) => ({
     rewriter: "unavailable",
     mockMode: true,
   },
-  setAvailability: (a) => set({ availability: a }),
+  setAvailability: (availability) => set({ availability }),
   theme: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
   toggleTheme: () => set((s) => ({ theme: s.theme === "dark" ? "light" : "dark" })),
   locale: "en",
-  setLocale: (l) => set({ locale: l }),
+  setLocale: (locale) => set({ locale }),
 }));
