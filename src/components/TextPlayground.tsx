@@ -9,7 +9,7 @@ import TextArea from "./ui/TextArea";
 const MAX = 4000;
 
 export default function TextPlayground() {
-  const [prompt, setPrompt] = useState("");
+  const [prompt, setPrompt] = useState("Write a Haiku");
   const [result, setResult] = useState("");
 
   async function runBatch() {
