@@ -13,11 +13,18 @@ export async function getPromptAdapter(): Promise<PromptAdapter> {
     try {
       const available = await LanguageModel.availability();
       if (available !== "unavailable") {
-        const lm = await LanguageModel.create();
+        const lm = await LanguageModel.create({
+          expectedOutputs: [
+            {
+              type: "text",
+              languages: ["en"],
+            },
+          ],
+        });
         return {
           kind: "real",
-          async prompt(text, opts) {
-            if (opts) return await lm.prompt(text, { responseConstraint: opts.responseConstraint, signal: opts.signal });
+          async prompt(text, options) {
+            if (options) return await lm.prompt(text, options);
             return await lm.prompt(text);
           },
         };
