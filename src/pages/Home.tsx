@@ -1,3 +1,4 @@
+import TextPlayground from "../components/TextPlayground";
 import Card from "../components/ui/Card";
 import type { Tab } from "../components/ui/Tabs";
 import Tabs from "../components/ui/Tabs";
@@ -7,7 +8,7 @@ export default function Home() {
   const availability = useAppStore((state) => state.availability);
 
   const tabs: Tab[] = [
-    { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: undefined },
+    { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: <TextPlayground /> },
     { id: "summary", label: "Summarizer", disabled: availability.summarizer === "unavailable", children: undefined },
     { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: undefined },
     { id: "language-detection", label: "Language Detector", disabled: availability.languageDetector === "unavailable", children: undefined },
