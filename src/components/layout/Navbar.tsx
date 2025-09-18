@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 text-sm">
           <select
             aria-label="Language"
-            className="bg-transparent border rounded px-2 py-1"
+            className="border text-sm rounded px-2 py-1 dark:bg-gray-950 dark:text-white"
             value={locale}
             onChange={(e) => setLocale(e.target.value as AppState["locale"])}
           >
