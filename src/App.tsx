@@ -10,10 +10,18 @@ import { detectAllCapabilities } from "./lib/chromeAI/capabilities";
 
 function App() {
   const setAvailability = useAppStore((state) => state.setAvailability);
+  const theme = useAppStore((state) => state.theme);
 
   useEffect(() => {
     detectAllCapabilities().then(setAvailability);
-  }, [setAvailability]);
+
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [setAvailability, theme]);
 
   return (
     <div className="min-h-screen flex flex-col">
