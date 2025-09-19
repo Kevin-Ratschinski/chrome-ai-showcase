@@ -7,6 +7,7 @@ import Navbar from "./components/layout/Navbar";
 import { useAppStore } from "./state/store";
 import { useEffect } from "react";
 import { detectAllCapabilities } from "./lib/chromeAI/capabilities";
+import { ToastProvider } from "./components/ui/Toast";
 
 function App() {
   const setAvailability = useAppStore((state) => state.setAvailability);
@@ -24,17 +25,19 @@ function App() {
   }, [setAvailability, theme]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="container mx-auto px-4 py-6 flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <ToastProvider>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="container mx-auto px-4 py-6 flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </ToastProvider>
   );
 }
 
