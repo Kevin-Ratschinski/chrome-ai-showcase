@@ -4,3 +4,7 @@ export async function promptOnce(text: string, options?: LanguageModelPromptOpti
   const adapter = await getPromptAdapter();
   return adapter.prompt(text, options);
 }
+export async function* promptStream(text: string, options?: LanguageModelPromptOptions) {
+  const adapter = await getPromptAdapter();
+  yield* adapter.promptStreaming(text, options);
+}

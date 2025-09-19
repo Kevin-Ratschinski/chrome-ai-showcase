@@ -8,3 +8,7 @@ export async function* streamFromString(text: string, delay = 20) {
     yield ch;
   }
 }
+
+export function isMockTest(): boolean {
+  return String(import.meta.env.VITE_MOCK_TEST) === "true";
+}
