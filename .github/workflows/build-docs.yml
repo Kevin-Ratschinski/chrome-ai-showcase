@@ -1,0 +1,36 @@
+name: Build to /docs
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit & push docs
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "docs -f"
+          message: "chore: update build (CI)"
+          default_author: github_actions
