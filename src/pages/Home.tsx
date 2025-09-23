@@ -1,3 +1,4 @@
+import LanguageDetectionPlayground from "../components/LanguageDetectionPlayground";
 import SummaryPlayground from "../components/SummaryPlayground";
 import TextPlayground from "../components/TextPlayground";
 import Card from "../components/ui/Card";
@@ -12,7 +13,12 @@ export default function Home() {
     { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: <TextPlayground /> },
     { id: "summary", label: "Summarizer", disabled: availability.summarizer === "unavailable", children: <SummaryPlayground /> },
     { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: undefined },
-    { id: "language-detection", label: "Language Detector", disabled: availability.languageDetector === "unavailable", children: undefined },
+    {
+      id: "language-detection",
+      label: "Language Detector",
+      disabled: availability.languageDetector === "unavailable",
+      children: <LanguageDetectionPlayground />,
+    },
     {
       id: "writing",
       label: "Writer/Rewriter",
