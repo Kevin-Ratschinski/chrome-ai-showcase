@@ -8,7 +8,7 @@ type SummarizerAdapter = {
   summarizeStreaming(text: string, options?: SummarizerCreateOptions): AsyncIterable<StreamChunk>;
 };
 
-export async function createSummarizer(options: SummarizerCreateOptions): Promise<SummarizerAdapter> {
+export async function getSummarizerAdapter(options: SummarizerCreateOptions): Promise<SummarizerAdapter> {
   if (Summarizer && !isMockTest()) {
     try {
       const availability = await Summarizer.availability();
