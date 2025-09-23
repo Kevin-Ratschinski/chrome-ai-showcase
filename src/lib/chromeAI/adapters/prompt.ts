@@ -9,9 +9,7 @@ export type PromptAdapter = {
 };
 
 export async function getPromptAdapter(): Promise<PromptAdapter> {
-  const LM = LanguageModel;
-
-  if (LM && !isMockTest()) {
+  if (LanguageModel && !isMockTest()) {
     try {
       const available = await LanguageModel.availability();
       if (available !== "unavailable") {
