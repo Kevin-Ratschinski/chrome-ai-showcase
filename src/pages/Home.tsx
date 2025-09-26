@@ -1,6 +1,7 @@
 import LanguageDetectionPlayground from "../components/LanguageDetectionPlayground";
 import SummaryPlayground from "../components/SummaryPlayground";
 import TextPlayground from "../components/TextPlayground";
+import TranslationPlayground from "../components/TranslationPlayground";
 import Card from "../components/ui/Card";
 import type { Tab } from "../components/ui/Tabs";
 import Tabs from "../components/ui/Tabs";
@@ -12,7 +13,7 @@ export default function Home() {
   const tabs: Tab[] = [
     { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: <TextPlayground /> },
     { id: "summary", label: "Summarizer", disabled: availability.summarizer === "unavailable", children: <SummaryPlayground /> },
-    { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: undefined },
+    { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: <TranslationPlayground /> },
     {
       id: "language-detection",
       label: "Language Detector",
