@@ -5,15 +5,31 @@ import TranslationPlayground from "../components/TranslationPlayground";
 import Card from "../components/ui/Card";
 import type { Tab } from "../components/ui/Tabs";
 import Tabs from "../components/ui/Tabs";
+import WritingPlayground from "../components/WritingPlayground";
 import { useAppStore } from "../state/store";
 
 export default function Home() {
   const availability = useAppStore((state) => state.availability);
 
   const tabs: Tab[] = [
-    { id: "text", label: "Prompt API", disabled: availability.languageModel === "unavailable", children: <TextPlayground /> },
-    { id: "summary", label: "Summarizer", disabled: availability.summarizer === "unavailable", children: <SummaryPlayground /> },
-    { id: "translate", label: "Translation", disabled: availability.translator === "unavailable", children: <TranslationPlayground /> },
+    {
+      id: "text",
+      label: "Prompt API",
+      disabled: availability.languageModel === "unavailable",
+      children: <TextPlayground />,
+    },
+    {
+      id: "summary",
+      label: "Summarizer",
+      disabled: availability.summarizer === "unavailable",
+      children: <SummaryPlayground />,
+    },
+    {
+      id: "translate",
+      label: "Translation",
+      disabled: availability.translator === "unavailable",
+      children: <TranslationPlayground />,
+    },
     {
       id: "language-detection",
       label: "Language Detector",
@@ -24,7 +40,7 @@ export default function Home() {
       id: "writing",
       label: "Writer/Rewriter",
       disabled: availability.writer === "unavailable" && availability.rewriter === "unavailable",
-      children: undefined,
+      children: <WritingPlayground />,
     },
   ];
 
@@ -36,8 +52,9 @@ export default function Home() {
             MOCK MODE active (no built-in AI available)
           </span>
         )}
-        Availability: LM: {availability.languageModel}, Summarizer: {availability.summarizer}, Translator: {availability.translator}, Language Detector:{" "}
-        {availability.languageDetector}, Writer: {availability.writer}, Rewriter: {availability.rewriter}
+        Availability: LM: {availability.languageModel}, Summarizer: {availability.summarizer}, Translator:{" "}
+        {availability.translator}, Language Detector: {availability.languageDetector}, Writer: {availability.writer},
+        Rewriter: {availability.rewriter}
       </p>
       <Tabs tabs={tabs} />
     </Card>
