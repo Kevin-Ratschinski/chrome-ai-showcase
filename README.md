@@ -1,8 +1,5 @@
 # Chrome AI Showcase
 
-> **Note**
-> This project is a work in progress.
-
 **A showcase application to demonstrate the built-in Chrome AI APIs.**
 
 ## Demo
