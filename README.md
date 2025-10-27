@@ -25,10 +25,10 @@ Everything runs on-device, ensuring privacy. A network connection is only requir
 This application demonstrates the following AI capabilities:
 
 - **Prompt API:** A general-purpose text playground to interact with the language model.
-- **Summarizer:** (WIP)
-- **Translation:** (WIP)
-- **Language Detector:** (WIP)
-- **Writer/Rewriter:** (WIP)
+- **Summarizer:** Summarizes long texts into concise versions.
+- **Translation:** Translates text from one language to another.
+- **Language Detector:** Detects the language of a given text.
+- **Writer/Rewriter:** Generates or rewrites text based on user input.
 
 ## Development
 
