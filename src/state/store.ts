@@ -17,8 +17,6 @@ export type AppState = {
   setAvailability: (availability: AvailabilityState) => void;
   theme: "light" | "dark";
   toggleTheme: () => void;
-  locale: "en" | "de";
-  setLocale: (locale: "en" | "de") => void;
 };
 
 export const useAppStore = create<AppState>((set) => ({
@@ -34,6 +32,4 @@ export const useAppStore = create<AppState>((set) => ({
   setAvailability: (availability) => set({ availability }),
   theme: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
   toggleTheme: () => set((s) => ({ theme: s.theme === "dark" ? "light" : "dark" })),
-  locale: "en",
-  setLocale: (locale) => set({ locale }),
 }));
